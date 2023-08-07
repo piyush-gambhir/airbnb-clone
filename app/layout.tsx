@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
+      <body className={`${nunito.className} flex flex-col justify-between`}>
         <Header />
         {children}
         <Footer />

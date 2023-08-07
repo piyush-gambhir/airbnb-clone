@@ -1,10 +1,11 @@
 import React from "react";
+import LoginModal from "./components/Modals/LoginModal";
+
 export default function page() {
   return (
     <div>
-      <h1 className="text-rose-500 ">
-        Airbnb
-      </h1>
+      <div>Hello World</div>
+      <LoginModal />
     </div>
   );
 }
