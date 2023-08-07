@@ -1,10 +1,12 @@
 import React from "react";
+
 export default function page() {
   return (
-    <div>
-      <h1 className="text-rose-500 ">
-        Airbnb
-      </h1>
+    <div className="">
+
+      <div>
+
+      </div>
     </div>
   );
 }
