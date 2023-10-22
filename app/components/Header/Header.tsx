@@ -8,6 +8,7 @@ import { HEADER_DATA } from "./config";
 
 export default function Header() {
   const [isUserMenuOpen, setIsUserMenuOpen] = React.useState(false);
+  const [isNavbarExpanded, setIsNavbarExpanded] = React.useState(false);
 
   const router = useRouter();
   const handleLogoClick = () => {
@@ -16,10 +17,18 @@ export default function Header() {
   const handleAirbnbYourHomeClick = () => {
     router.push("/host/homes");
   };
-  const handleAnywhereClick = () => {};
-  const handleAnyweekClick = () => {};
-  const handleAddGuestsClick = () => {};
-  const handleSearchClick = () => {};
+  const handleAnywhereClick = () => {
+    setIsNavbarExpanded(true);
+  };
+  const handleAnyweekClick = () => {
+    setIsNavbarExpanded(true);
+  };
+  const handleAddGuestsClick = () => {
+    setIsNavbarExpanded(true);
+  };
+  const handleSearchClick = () => {
+    setIsNavbarExpanded(true);
+  };
 
   const handleUserMenuButtonClick = () => {
     setIsUserMenuOpen(!isUserMenuOpen);
@@ -33,7 +42,11 @@ export default function Header() {
 
   return (
     <div className="flex flex-col">
-      <div className="h-20 flex flex-row justify-between items-center sm:px-10  2xl:px-20 border-b-[1px] border-black-10 text-dark_gray">
+      <div
+        className={`h-20 flex flex-row justify-between items-center sm:px-10 2xl:px-20 text-dark_gray ${
+          isNavbarExpanded ? "scale-y-200" : "border-b-[1px] border-black-10"
+        }`}
+      >
         <div className="rounded-xl border-transparent">
           <Image
             onClick={handleLogoClick}
@@ -71,11 +84,11 @@ export default function Header() {
             <button
               type="button"
               className="flex flex-row items-center gap-2 cursor-pointer select-none"
-              onClick={() => {}}
+              onClick={handleAddGuestsClick}
             >
               <div className="px-4 text-light_gray">Add guests</div>
             </button>
-            <button type="button" className="pr-2">
+            <button type="button" className="pr-2" onClick={handleSearchClick}>
               <div className="bg-rose-500 rounded-full p-2">
                 <Image
                   className=""
@@ -93,6 +106,7 @@ export default function Header() {
             <button
               type="button"
               className="appearance-none py-2 px-4 rounded-full hover:bg-gray-100"
+              onClick={handleAirbnbYourHomeClick}
             >
               <div>Airbnb your home</div>
             </button>
